@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #000;
+  color: #fff;
+  gap: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  grid-template-areas: "header header header header" "nav section section section" "footer footer footer footer";
+}
+main header, main nav, main section, main footer {
+  background-color: #fff;
+  color: #000;
+  padding: 20px;
+  border-radius: 10px;
+}
+main header {
+  grid-area: header;
+}
+main nav {
+  grid-area: nav;
+}
+main section {
+  grid-area: section;
+}
+main footer {
+  grid-area: footer;
+}
+
+/*# sourceMappingURL=style.css.map */
