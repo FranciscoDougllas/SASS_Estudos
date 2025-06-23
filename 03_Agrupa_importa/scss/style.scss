@@ -1,0 +1,33 @@
+@use "./reset.scss";
+@use "./header.scss";
+
+nav{
+    display: flex;
+
+    ul{
+        display: flex;
+        gap: 20px;
+
+        li{
+            list-style: none;
+            font-size: 1.5rem;
+            margin-top: 20px;
+            a{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-decoration: none;
+                padding: 10px 20px;
+                color: #fff;
+                border-radius: 5px 0 10px 0;
+                transition: 0.3s;
+                background: rgb(81, 219, 56);
+                &:hover{
+                    background: rgb(121, 106, 106);
+                    color: #fff;
+                    transform: scale(1.12);
+                }
+            }
+        }
+    }
+}
