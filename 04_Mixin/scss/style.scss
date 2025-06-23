@@ -1,0 +1,33 @@
+@use './reset.scss';
+
+@mixin girar($graus){
+    transform: rotate($graus);
+    -webkit-transform: rotate($graus);
+    -moz-transform: rotate($graus);
+    -ms-transform: rotate($graus);
+    -o-transform: rotate($graus);
+}
+
+
+nav{
+    margin: 20px;
+    display: flex;
+   
+    ul{
+        display: flex;
+        padding: 20px;
+        gap: 10px;
+        background-color: #000;
+        li{
+            display: flex;
+            @include girar(45deg);
+            padding: 10px;
+            background-color: rgb(116, 94, 94);
+            box-shadow: 0 0 10px 0 rgba(219, 207, 207, 0.5);
+            a{
+                color: #fff;
+                @include girar(-45deg);
+            }
+        }
+    }
+}
