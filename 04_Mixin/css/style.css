@@ -30,11 +30,11 @@ nav ul {
 }
 nav ul li {
   display: flex;
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
+  transform: rotate(85deg);
+  -webkit-transform: rotate(85deg);
+  -moz-transform: rotate(85deg);
+  -ms-transform: rotate(85deg);
+  -o-transform: rotate(85deg);
   padding: 10px;
   background-color: rgb(116, 94, 94);
   box-shadow: 0 0 10px 0 rgba(219, 207, 207, 0.5);
