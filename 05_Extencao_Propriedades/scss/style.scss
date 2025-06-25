@@ -1,0 +1,177 @@
+@use './reset.scss';
+
+// Mixin mais completo para transformações
+@mixin transform($transformacao...) {
+    transform: $transformacao;
+    -webkit-transform: $transformacao;
+    -moz-transform: $transformacao;
+    -ms-transform: $transformacao;
+    -o-transform: $transformacao;
+}
+
+// Mixin específico para rotação
+@mixin girar($graus) {
+    @include transform(rotate($graus));
+}
+
+// Mixin para sombras
+@mixin box-shadow($shadow...) {
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    box-shadow: $shadow;
+}
+
+// Placeholder base para mensagens
+%fundamento-msg {
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    margin: 10px 0;
+    text-align: center;
+    width: 100%;
+    border: 2px solid;
+    transition: all 0.3s ease;
+}
+
+// Extensões de mensagens usando @extend
+.msg-info {
+    @extend %fundamento-msg;
+    background-color: #0066cc;
+    color: #fff;
+    border-color: #004499;
+    
+    &:hover {
+        background-color: #0055aa;
+        transform: scale(1.02);
+    }
+}
+
+.msg-sucesso {
+    @extend %fundamento-msg;
+    background-color: #28a745;
+    color: #fff;
+    border-color: #1e7e34;
+    
+    &:hover {
+        background-color: #218838;
+        transform: scale(1.02);
+    }
+}
+
+.msg-erro {
+    @extend %fundamento-msg;
+    background-color: #dc3545;
+    color: #fff;
+    border-color: #c82333;
+    
+    &:hover {
+        background-color: #c82333;
+        transform: scale(1.02);
+    }
+}
+
+.msg-aviso {
+    @extend %fundamento-msg;
+    background-color: #ffc107;
+    color: #212529;
+    border-color: #e0a800;
+    
+    &:hover {
+        background-color: #e0a800;
+        transform: scale(1.02);
+    }
+}
+
+
+//Operadores Matematicos
+
+// Operadores Matemáticos em SCSS
+// SCSS suporta operações matemáticas básicas: +, -, *, /, %
+
+// Exemplo 1: Cálculos com unidades
+.container {
+    width: 100% - 20px; // 100% menos 20px
+    height: 50vh + 100px; // 50vh mais 100px
+    margin: 10px * 2; // 20px
+    padding: 100px / 4; // 25px
+}
+
+// Exemplo 2: Cálculos com variáveis
+$base-size: 16px;
+$spacing: 8px;
+
+.texto {
+    font-size: $base-size;
+    line-height: $base-size * 1.5; // 24px
+    margin-bottom: $spacing * 2; // 16px
+    padding: $spacing / 2; // 4px
+}
+
+// Exemplo 3: Cálculos com porcentagens
+.grid {
+    width: 100%;
+    .col-1 { width: 100% / 1; } // 100%
+    .col-2 { width: 100% / 2; } // 50%
+    .col-3 { width: 100% / 3; } // 33.333%
+    .col-4 { width: 100% / 4; } // 25%
+}
+
+// Exemplo 4: Operador módulo (%)
+.cards {
+    .card:nth-child(3n + 1) { // A cada 3 elementos, o primeiro
+        background-color: #f0f0f0;
+    }
+    
+    .card:nth-child(2n) { // Elementos pares
+        border-left: 2px solid #ccc;
+    }
+}
+
+// Exemplo 5: Cálculos complexos
+$container-width: 1200px;
+$sidebar-width: 300px;
+$gutter: 20px;
+
+.layout {
+    .sidebar {
+        width: $sidebar-width;
+        margin-right: $gutter;
+    }
+    
+    .content {
+        width: $container-width - $sidebar-width - $gutter; // 880px
+        padding: ($gutter * 2) / 3; // ~13.33px
+    }
+}
+
+// Exemplo 6: Cálculos com cores (não funciona diretamente)
+// Para operações com cores, use funções específicas do SCSS
+$primary-color: #0066cc;
+
+.button {
+    background-color: $primary-color;
+    border-color: darken($primary-color, 10%); // Escurece 10%
+    
+    &:hover {
+        background-color: lighten($primary-color, 10%); // Clareia 10%
+    }
+}
+
+// Exemplo 7: Cálculos responsivos
+$breakpoint-mobile: 768px;
+$breakpoint-tablet: 1024px;
+
+.responsive-element {
+    width: 100%;
+    
+    @media (min-width: $breakpoint-mobile) {
+        width: 50%;
+        margin: 0 ($gutter / 2); // 10px
+    }
+    
+    @media (min-width: $breakpoint-tablet) {
+        width: 33.333%;
+        margin: 0 ($gutter / 3); // ~6.67px
+    }
+}
+

@@ -1,0 +1,60 @@
+@use './reset.scss';
+
+// Mixin mais completo para transformações
+@mixin transform($transformacao...) {
+    transform: $transformacao;
+    -webkit-transform: $transformacao;
+    -moz-transform: $transformacao;
+    -ms-transform: $transformacao;
+    -o-transform: $transformacao;
+}
+
+// Mixin específico para rotação
+@mixin girar($graus) {
+    @include transform(rotate($graus));
+}
+
+// Mixin para sombras
+@mixin box-shadow($shadow...) {
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    box-shadow: $shadow;
+}
+
+nav {
+    margin: 20px;
+    display: flex;
+   
+    ul {
+        display: flex;
+        padding: 20px;
+        gap: 10px;
+        background-color: #000;
+        border-radius: 8px;
+
+        li {
+            display: flex;
+            @include girar(45deg);
+            padding: 10px;
+            background-color: rgb(116, 94, 94);
+            @include box-shadow(0 0 10px 0 rgba(219, 207, 207, 0.5));
+            border-radius: 4px;
+            transition: all 0.3s ease;
+
+            &:hover {
+                @include box-shadow(0 0 15px 0 rgba(219, 207, 207, 0.7));
+                background-color: rgb(126, 104, 104);
+            }
+
+            a {
+                color: #fff;
+                @include girar(-45deg);
+                font-weight: 500;
+                
+                &:hover {
+                    color: #f0f0f0;
+                }
+            }
+        }
+    }
+}
